@@ -26,56 +26,66 @@ Every score below is measured, not estimated: source and clone are captured at t
 
 ### TaskGo: full Webflow site, every route
 
-A `/webclone-full` clone of the [TaskGo Webflow template](https://taskgo-oly.webflow.io/): all 6 routes rebuilt as Next.js components, with the site's GSAP interactions (split-letter headings, scroll-scrubbed cards) and Webflow IX2 interactions (scroll reveals, logo marquee, FAQ accordion, pricing tabs, mobile menu) replayed from their exported data.
+A `/webclone-full` clone of the [TaskGo Webflow template](https://taskgo-oly.webflow.io/): all 6 routes rebuilt as Next.js components, with the site's GSAP interactions (split-letter headings, scroll-scrubbed cards) and Webflow IX2 interactions (scroll reveals, logo marquee, FAQ accordion, pricing tabs, mobile menu) replayed from their exported data. The clone carries the WebCloner name and logo instead of TaskGo, so every screenshot shows which side is which.
 
 **Full source and evidence of this clone: [x4zu/webclone-showcase-taskgo](https://github.com/x4zu/webclone-showcase-taskgo)** (run it with `npm install && npm run dev`).
 
 | Route | 1440px | 768px | 390px | Page height |
 |---|---|---|---|---|
-| `/` | 97.91% | 98.98% | 98.42% | identical |
-| `/style-guide` | 99.68% | 99.43% | 99.02% | identical |
-| `/license` | 99.38% | 99.04% | 97.97% | identical |
-| `/changelog` | 99.57% | 99.35% | 98.74% | identical |
-| `/401` | 99.54% | 99.34% | 98.75% | identical |
-| `/404` | 99.61% | 99.47% | 98.89% | identical |
+| `/` | 93.20%* | 98.89% | 98.31% | +0.7%* |
+| `/style-guide` | 99.61% | 99.31% | 98.86% | identical |
+| `/license` | 99.22% | 98.78% | 97.58% | identical |
+| `/changelog` | 99.38% | 99.01% | 98.21% | identical |
+| `/401` | 99.32% | 99.01% | 98.27% | identical |
+| `/404` | 99.42% | 99.16% | 98.39% | identical |
 
-<sub>Full-page pixel fidelity from `fidelity-gate.mjs` (gate: ≥ 90%, height drift ≤ 3%). 6/6 routes pass.</sub>
+<sub>Full-page pixel fidelity from `fidelity-gate.mjs` (gate: ≥ 90%, height drift ≤ 3%). 6/6 routes pass. *The clone deliberately shows the WebCloner brand instead of TaskGo: the longer heading "Why Teams Choose WebCloner" wraps to two lines and shifts the rest of the home page by 65px, which lowers the full-page desktop score. Section-aligned comparisons below are unaffected.</sub>
 
 <table>
   <tr>
-    <th width="50%">Original</th>
+    <th width="50%">TaskGo original</th>
     <th width="50%">WebCloner clone</th>
   </tr>
   <tr>
-    <td><img src="docs/showcase/taskgo/original-hero.jpg" alt="Original TaskGo hero"></td>
-    <td><img src="docs/showcase/taskgo/clone-hero.jpg" alt="Cloned TaskGo hero"></td>
+    <td><img src="docs/showcase/taskgo/taskgo-original-hero.jpg" alt="TaskGo original: hero"></td>
+    <td><img src="docs/showcase/taskgo/webcloner-clone-hero.jpg" alt="WebCloner clone: hero"></td>
   </tr>
-  <tr><td colspan="2" align="center"><sub>Hero · 1440px · <b>99.48%</b></sub></td></tr>
+  <tr><td colspan="2" align="center"><sub>Hero · 1440px · <b>99.22%</b></sub></td></tr>
   <tr>
-    <td><img src="docs/showcase/taskgo/original-features.jpg" alt="Original logo marquee and features"></td>
-    <td><img src="docs/showcase/taskgo/clone-features.jpg" alt="Cloned logo marquee and features"></td>
+    <td><img src="docs/showcase/taskgo/taskgo-original-features.jpg" alt="TaskGo original: features"></td>
+    <td><img src="docs/showcase/taskgo/webcloner-clone-features.jpg" alt="WebCloner clone: features"></td>
   </tr>
-  <tr><td colspan="2" align="center"><sub>Logo marquee + features · <b>97.99%</b></sub></td></tr>
+  <tr><td colspan="2" align="center"><sub>Logo marquee + features · <b>98.01%</b></sub></td></tr>
   <tr>
-    <td><img src="docs/showcase/taskgo/original-steps.jpg" alt="Original stats and steps heading mid-animation"></td>
-    <td><img src="docs/showcase/taskgo/clone-steps.jpg" alt="Cloned stats and steps heading mid-animation"></td>
+    <td><img src="docs/showcase/taskgo/taskgo-original-choose.jpg" alt="TaskGo original: choose"></td>
+    <td><img src="docs/showcase/taskgo/webcloner-clone-choose.jpg" alt="WebCloner clone: choose"></td>
   </tr>
-  <tr><td colspan="2" align="center"><sub>Stats + scroll-scrubbed split-letter heading, caught mid-animation on both · <b>98.93%</b></sub></td></tr>
+  <tr><td colspan="2" align="center"><sub>Brand swapped to WebCloner in the clone (heading + logo), so the two are easy to tell apart</sub></td></tr>
   <tr>
-    <td><img src="docs/showcase/taskgo/original-testimonials.jpg" alt="Original testimonials"></td>
-    <td><img src="docs/showcase/taskgo/clone-testimonials.jpg" alt="Cloned testimonials"></td>
+    <td><img src="docs/showcase/taskgo/taskgo-original-steps.jpg" alt="TaskGo original: steps"></td>
+    <td><img src="docs/showcase/taskgo/webcloner-clone-steps.jpg" alt="WebCloner clone: steps"></td>
   </tr>
-  <tr><td colspan="2" align="center"><sub>Testimonials · <b>97.89%</b></sub></td></tr>
+  <tr><td colspan="2" align="center"><sub>Stats + scroll-scrubbed split-letter heading, caught mid-animation on both · <b>98.60%</b></sub></td></tr>
   <tr>
-    <td><img src="docs/showcase/taskgo/original-pricing.jpg" alt="Original pricing after clicking Yearly"></td>
-    <td><img src="docs/showcase/taskgo/clone-pricing.jpg" alt="Cloned pricing after clicking Yearly"></td>
+    <td><img src="docs/showcase/taskgo/taskgo-original-testimonials.jpg" alt="TaskGo original: testimonials"></td>
+    <td><img src="docs/showcase/taskgo/webcloner-clone-testimonials.jpg" alt="WebCloner clone: testimonials"></td>
   </tr>
-  <tr><td colspan="2" align="center"><sub>Interaction: pricing toggle after a real click on "Yearly"</sub></td></tr>
+  <tr><td colspan="2" align="center"><sub>Testimonials with scroll-scrubbed cards · <b>98.94%</b></sub></td></tr>
   <tr>
-    <td align="center"><img src="docs/showcase/taskgo/original-mobile-menu.jpg" width="260" alt="Original mobile menu open"></td>
-    <td align="center"><img src="docs/showcase/taskgo/clone-mobile-menu.jpg" width="260" alt="Cloned mobile menu open"></td>
+    <td><img src="docs/showcase/taskgo/taskgo-original-pricing.jpg" alt="TaskGo original: pricing"></td>
+    <td><img src="docs/showcase/taskgo/webcloner-clone-pricing.jpg" alt="WebCloner clone: pricing"></td>
   </tr>
-  <tr><td colspan="2" align="center"><sub>Interaction: mobile menu opened with a real tap · 390px · <b>99.30%</b></sub></td></tr>
+  <tr><td colspan="2" align="center"><sub>Interaction: pricing toggle after a real click on "Yearly" · <b>95.46%</b></sub></td></tr>
+  <tr>
+    <td><img src="docs/showcase/taskgo/taskgo-original-footer.jpg" alt="TaskGo original: footer"></td>
+    <td><img src="docs/showcase/taskgo/webcloner-clone-footer.jpg" alt="WebCloner clone: footer"></td>
+  </tr>
+  <tr><td colspan="2" align="center"><sub>Footer · TaskGo wordmark vs WebCloner wordmark · <b>99.20%</b></sub></td></tr>
+  <tr>
+    <td align="center"><img src="docs/showcase/taskgo/taskgo-original-mobile-menu.jpg" width="260" alt="TaskGo original: mobile menu open"></td>
+    <td align="center"><img src="docs/showcase/taskgo/webcloner-clone-mobile-menu.jpg" width="260" alt="WebCloner clone: mobile menu open"></td>
+  </tr>
+  <tr><td colspan="2" align="center"><sub>Interaction: mobile menu opened with a real tap · 390px · <b>98.96%</b></sub></td></tr>
 </table>
 
 <sub>Demo clone for illustration only. The TaskGo template, its design, and its images belong to Olynex and the respective asset owners.</sub>
