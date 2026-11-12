@@ -1,7 +1,7 @@
 {
   "name": "webclone",
-  "version": "1.0.1",
-  "description": "/webclone <url1> [<url2> ...] rebuilds live websites as editable Next.js 16 + Tailwind v4 + shadcn/ui pages that match the source's content, assets, responsive layout, and interactions.",
+  "version": "2.0.0",
+  "description": "/webclone and friends: clone live websites into editable Next.js 16 + Tailwind v4 + shadcn/ui code with measured fonts, images, colors, and motion; whole-site cloning with a per-route fidelity gate; recon, audit, brand-kit extraction, and remix commands.",
   "author": {
     "name": "x2zu",
     "url": "https://github.com/x4zu"
@@ -9,5 +9,17 @@
   "homepage": "https://github.com/x4zu/WebCloner",
   "repository": "https://github.com/x4zu/WebCloner",
   "license": "MIT",
-  "keywords": ["website-clone", "reverse-engineering", "nextjs", "tailwindcss", "shadcn-ui", "playwright"]
+  "keywords": [
+    "website-clone",
+    "reverse-engineering",
+    "nextjs",
+    "tailwindcss",
+    "shadcn-ui",
+    "playwright",
+    "design-system",
+    "brand-kit",
+    "visual-diff",
+    "gsap",
+    "lenis"
+  ]
 }

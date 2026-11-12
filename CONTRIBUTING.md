@@ -4,12 +4,13 @@ Thanks for helping improve **WebCloner**, the `/webclone` Claude Code plugin.
 
 ## What lives where
 
-- `skills/webclone/SKILL.md`: the `/webclone` workflow. This is the single source of truth.
-- `skills/webclone/references/`: inspection and Framer/motion guides that the skill loads on demand.
-- `skills/webclone/scripts/scaffold.mjs`: creates or reuses the clone project.
-- `skills/webclone/scripts/capture.mjs`: Playwright capture fallback.
-- `skills/webclone/template/`: the Next.js 16 scaffold that gets copied into each clone.
-- `.claude-plugin/`: plugin and marketplace manifests. Bump `version` in `plugin.json` for every release.
+- `skills/webclone/SKILL.md`: the main `/webclone` workflow. Other commands live in `skills/webclone-*/SKILL.md` and call the shared scripts.
+- `skills/webclone/references/`: guides the skills load on demand.
+- `skills/webclone/scripts/`: all scripts (see README). Each must keep working with `--help` and without Playwright installed.
+- `skills/webclone/template/`: the Next.js 16 scaffold copied into each clone.
+- `skills/webclone-remix/references/`: craft rules, frontend-design, themes.
+- `.claude-plugin/`: plugin and marketplace manifests. Bump `version` in both for every release.
+- `THIRD_PARTY_NOTICES.md` + `LICENSES/`: update them whenever you bring in outside material.
 
 ## Develop
 

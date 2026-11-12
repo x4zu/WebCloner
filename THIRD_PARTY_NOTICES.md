@@ -1,0 +1,17 @@
+# Third-party notices
+
+WebCloner is MIT-licensed (see [LICENSE](LICENSE)). It includes or adapts material from the projects below. Their license texts are in [LICENSES/](LICENSES/).
+
+| Material in this repo | Source | License | Changes |
+|---|---|---|---|
+| Original template, `/clone-website` workflow, `skills/webclone/references/inspection-guide.md`, `framer-and-motion.md`, `skills/webclone/template/` | [JCodesMore/ai-website-cloner-template](https://github.com/JCodesMore/ai-website-cloner-template), © 2025 JCodesMore | MIT ([LICENSE](LICENSE)) | Repackaged as a Claude Code plugin; workflow extended |
+| `skills/webclone/scripts/` recon-site, asset-harvest, network-capture, route-crawl, interaction-probe, sourcemap-hunt, mirror-site, visual-diff, compare-recon, audit-clone, dna-scaffold, `lib/`; references assessment, complex-playbooks, deliverables, design-dna, effect-extraction, reverse-engineering, static-mirror | `web-clone` skill by Jane (@xiaoerzhan), shipped in [nexu-io/open-design](https://github.com/nexu-io/open-design) | MIT ([LICENSES/MIT-web-clone.txt](LICENSES/MIT-web-clone.txt)) | Translated from Chinese to English; OpenDesign daemon/preview code removed; env vars renamed to `WEBCLONE_*`; audit adapted to Next.js (tsx, `next/font/local`); visual-diff gains `fidelityPct`, height drift, and `--min-fidelity` |
+| Design DNA schema in `skills/webclone/references/design-dna.md` | [zanwei/design-dna](https://github.com/zanwei/design-dna), via web-clone | MIT | Reformatted |
+| `skills/webclone/references/motion.md` (motion rules, easing/duration tables) | `animate` by Emil Kowalski ([emilkowalski/skills](https://github.com/emilkowalski/skills)), `gsap-react` by GreenSock ([greensock/gsap-skills](https://github.com/greensock/gsap-skills)), `ui-animation` by Matthew Blode ([mblode/agent-skills](https://github.com/mblode/agent-skills)), as curated in open-design | MIT ([LICENSES/MIT-emilkowalski-animate.txt](LICENSES/MIT-emilkowalski-animate.txt), [MIT-greensock-gsap-react.txt](LICENSES/MIT-greensock-gsap-react.txt), [MIT-mblode-ui-animation.txt](LICENSES/MIT-mblode-ui-animation.txt)) | Rewritten for measuring and matching source motion |
+| `skills/webclone/references/effect-extraction.md` evidence discipline | Concepts from `web-shader-extractor` ([lixiaolin94/skills](https://github.com/lixiaolin94/skills)) | No license: concepts only, no text or code copied | Written from scratch |
+| `skills/webclone-remix/references/craft/` | `craft/` in [nexu-io/open-design](https://github.com/nexu-io/open-design); several files adapted there from [refero_skill](https://github.com/referodesign/refero_skill) (MIT) | Apache-2.0 ([LICENSES/Apache-2.0.txt](LICENSES/Apache-2.0.txt)); MIT upstream | OpenDesign tooling references removed |
+| `skills/webclone-brand/SKILL.md` method and `brand.json` shape | `brand-extract` in [nexu-io/open-design](https://github.com/nexu-io/open-design) | Apache-2.0 | Rewritten for local scripts (`brand-kit.mjs`) |
+| `skills/webclone-remix/references/frontend-design.md` | `frontend-design` in [anthropics/skills](https://github.com/anthropics/skills) | Apache-2.0 | Frontmatter removed |
+| `skills/webclone-remix/references/themes/` | `theme-factory` in [anthropics/skills](https://github.com/anthropics/skills) | Apache-2.0 | Unmodified; README added |
+
+New in this repository (MIT): `scaffold.mjs`, `motion-probe.mjs`, `fidelity-gate.mjs`, `brand-kit.mjs`, and the six `SKILL.md` workflows.

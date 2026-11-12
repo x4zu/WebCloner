@@ -38,6 +38,13 @@ jobs:
       - name: Validate plugin manifests
         run: |
           node -e "for (const f of ['.claude-plugin/plugin.json','.claude-plugin/marketplace.json']) JSON.parse(require('fs').readFileSync(f,'utf8'))"
+          for d in skills/*/; do test -f "$d/SKILL.md" || { echo "missing $d/SKILL.md"; exit 1; }; done
+      - name: Scripts parse and print usage
+        run: |
+          for f in skills/webclone/scripts/*.mjs skills/webclone/scripts/lib/*.mjs; do node --check "$f"; done
+          for f in recon-site asset-harvest motion-probe interaction-probe route-crawl network-capture visual-diff fidelity-gate audit-clone brand-kit; do
+            node "skills/webclone/scripts/$f.mjs" --help > /dev/null
+          done
       - name: Scaffold a project
         run: |
           mkdir -p /tmp/wc && cd /tmp/wc
@@ -48,3 +55,19 @@ jobs:
       - name: Scaffolded project builds
         working-directory: /tmp/wc/example-com-clone
         run: npm run check
+      - name: Recon and gate with the system browser (no Playwright)
+        working-directory: /tmp/wc/example-com-clone
+        run: |
+          S="$GITHUB_WORKSPACE/skills/webclone/scripts"
+          node "$S/recon-site.mjs" --url https://example.com --out docs/research/example-com/recon --label original --widths 1440,390
+          node "$S/asset-harvest.mjs" --url https://example.com --recon docs/research/example-com/recon/original-recon.json --out public/sites/example-com --manifest docs/research/example-com/recon/asset-manifest.json
+          node "$S/motion-probe.mjs" --url https://example.com --out docs/research/example-com/recon/motion --positions 0,1
+          R=docs/research/example-com/recon/screenshots
+          node "$S/visual-diff.mjs" --original $R/original-1440.png --clone $R/original-1440.png --out /tmp/vd.json --min-fidelity 99
+          node "$S/fidelity-gate.mjs" --origin https://example.com --local https://example.com --routes / --widths 1440 --out /tmp/gate
+          set +e
+          node "$S/audit-clone.mjs" --project . --recon docs/research/example-com/recon/original-recon.json --strict --out /tmp/CLONE_AUDIT.md
+          code=$?
+          set -e
+          # The untouched template must fail the strict gate (palette not copied yet).
+          test "$code" = "2"

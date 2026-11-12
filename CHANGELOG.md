@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0] - 2026-11-12
+
+### Added
+- Five new commands: `/webclone-full` (whole site, per-route 90-100% pixel gate), `/webclone-recon` (inspect only, L1-L6 grade), `/webclone-audit` (score and `--fix` a clone), `/webclone-brand` (brand kit, `DESIGN.md`, Tailwind `theme.css`), `/webclone-remix` (make a clone your own).
+- Zero-install browser engine: scripts drive the system Chrome/Edge/Chromium over CDP; Playwright is used only when already present. Override with `WEBCLONE_BROWSER_PATH`.
+- Recon toolkit ported from the `web-clone` skill (open-design, MIT) and translated to English: `recon-site`, `asset-harvest` (self-hosted `fonts.css`), `route-crawl`, `interaction-probe`, `network-capture`, `sourcemap-hunt`, `mirror-site`, `visual-diff`, `compare-recon`, `audit-clone`, `dna-scaffold`.
+- New scripts: `motion-probe.mjs` (measured animations, transitions, GSAP/ScrollTrigger, Lenis), `fidelity-gate.mjs` (per-route, per-width gate with `FIDELITY.md`), `brand-kit.mjs` (`brand.json` -> preview page + theme).
+- `visual-diff.mjs`: `fidelityPct`, `heightDriftPct`, and `--min-fidelity` (exit 3 below gate).
+- References: complexity/scoring, complex-site playbooks, deliverables, design DNA, WebGL teardown and evidence discipline, static mirroring, motion measurement.
+- Remix references: craft rules (anti-AI-slop, accessibility, typography, color, states, forms, laws of UX), `frontend-design`, 10 starter themes.
+- `THIRD_PARTY_NOTICES.md` and `LICENSES/`.
+
+### Changed
+- `/webclone` workflow: real-source search and license check first, measured recon, complexity assessment, hard fidelity gates (real fonts, real images, exact colors, scroll feel), and `audit-clone --strict` before delivery.
+- `audit-clone.mjs` understands Next.js projects (`.tsx` colors, `next/font/local`, linked `fonts.css`) and ignores research evidence and harvested CSS.
+
+### Removed
+- `capture.mjs` (replaced by `recon-site.mjs` + `asset-harvest.mjs`).
+
 ## [1.0.0] - 2026-11-12
 
 ### Changed

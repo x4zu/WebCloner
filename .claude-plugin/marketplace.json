@@ -9,14 +9,14 @@
   "plugins": [
     {
       "name": "webclone",
-      "description": "/webclone <url1> [<url2> ...]: rebuild live websites as editable Next.js pages.",
+      "description": "/webclone, /webclone-full, /webclone-recon, /webclone-audit, /webclone-brand, /webclone-remix: clone websites into editable Next.js code with measured fidelity.",
       "source": "./",
       "category": "development",
       "author": {
         "name": "x2zu",
         "url": "https://github.com/x4zu"
       },
-      "version": "1.0.1"
+      "version": "2.0.0"
     }
   ]
 }
