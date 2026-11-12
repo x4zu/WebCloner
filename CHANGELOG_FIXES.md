@@ -11,7 +11,7 @@
 | Verifikasi | Sebelum: 1/2 route lulus (1 error). Sesudah: 2/2 lulus, 100% di 1440 dan 390 |
 | Pelajaran | Script CLI yang menerima path URL wajib tahan konversi MSYS; di skill lain gunakan `MSYS_NO_PATHCONV=1` bila perlu |
 | Log Keyword | msys, pathconv, fidelity-gate, webclone-skill-suite |
-| Deploy | v2.0.0 |
+| Deploy | ✅ LIVE 2026-11-12 v2.0.0 (commit 0806018, CI run 43152701186 hijau) |
 
 ### Fix #3 — visual-diff lolos untuk layout berbeda di halaman dominan putih
 | | |
@@ -24,7 +24,7 @@
 | Verifikasi | Kasus 1440 vs 390 sekarang ditolak (height drift 34.07%); identik tetap 100% / h0% |
 | Pelajaran | Skor piksel saja tidak cukup; selalu gabungkan dengan geometri halaman dan lihat diff image |
 | Log Keyword | visual-diff, heightDrift, min-fidelity, webclone-skill-suite |
-| Deploy | v2.0.0 |
+| Deploy | ✅ LIVE 2026-11-12 v2.0.0 (commit 0806018, CI run 43152701186 hijau) |
 
 ### Fix #2 — motion-probe gagal di situs GSAP: "Object reference chain is too long"
 | | |
@@ -37,7 +37,7 @@
 | Verifikasi | gsap.com: GSAP v3.15.0, 80 tween, 7 ScrollTrigger terbaca; lenis.darkroom.engineering: transition 1200ms cubic-bezier(0.19, 1, 0.22, 1) terbaca |
 | Pelajaran | Semua `page.evaluate` yang membaca objek library harus menserialisasi sendiri di dalam halaman |
 | Log Keyword | motion-probe, CDP, serialization, gsap, webclone-skill-suite |
-| Deploy | v2.0.0 |
+| Deploy | ✅ LIVE 2026-11-12 v2.0.0 (commit 0806018, CI run 43152701186 hijau) |
 
 ### Fix #1 — audit-clone menolak clone Next.js yang benar (port dari web-clone)
 | | |
@@ -50,4 +50,4 @@
 | Verifikasi | example.com: template kosong → exit 2 (warna body rgb(0,0,0) tidak ada); setelah token persis ditambahkan ke `globals.css` → exit 0, "None found". iana.org: 2 defect nyata terdeteksi (font tak dipakai, warna body) |
 | Pelajaran | Gate yang diport dari stack lain harus diuji dua arah (harus gagal dan harus lulus) di stack tujuan |
 | Log Keyword | audit-clone, strict, fidelity gate, next/font, webclone-skill-suite |
-| Deploy | v2.0.0 |
+| Deploy | ✅ LIVE 2026-11-12 v2.0.0 (commit 0806018, CI run 43152701186 hijau) |
