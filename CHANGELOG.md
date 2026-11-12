@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.2] - 2026-11-12
+
+### Fixed
+- asset-harvest: webfont CSS fetched with a different user-agent than the browser now has its referenced font files downloaded, so fonts.css is fully self-hosted.
+- motion-probe: GSAP tween start values (startAt) and stagger settings are kept instead of being flattened to "[object]".
+- Template: ESLint ignores docs/ and public/ (downloaded evidence and assets), so npm run check stays clean in clones.
+
+### Changed
+- README showcase: TaskGo full-site Webflow clone (6 routes, 97.91-99.68% per route at 1440/768/390) next to poliwangi.ac.id.
+
 ## [2.0.1] - 2026-11-12
 
 ### Fixed

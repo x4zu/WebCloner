@@ -1,5 +1,44 @@
 # Catatan Perbaikan (terbaru → terlama)
 
+### Fix #8 — Lint clone gagal/berisik karena bukti riset di docs/
+| | |
+|---|---|
+| Tanggal | 2026-11-12 |
+| File | `skills/webclone/template/eslint.config.mjs` |
+| Masalah | `npm run check` di clone TaskGo me-lint `docs/research/.../source/wf-webflow.*.js` (JS Webflow hasil unduhan) → puluhan warning `no-unused-expressions` |
+| Akar | Template hanya meng-ignore `.next/`, `out/`, `build/`; workflow menyimpan HTML/JS/CSS pihak ketiga di `docs/` dan `public/` |
+| Fix | `globalIgnores` + `docs/**` dan `public/**` |
+| Verifikasi | Clone TaskGo: `npm run check` exit 0, 0 warning |
+| Pelajaran | Folder bukti/aset hasil unduhan bukan kode project; template harus mengecualikannya dari tooling |
+| Log Keyword | eslint, globalIgnores, docs, template, taskgo |
+| Deploy | v2.0.2 |
+
+### Fix #7 — motion-probe membuang nilai awal (startAt) animasi GSAP
+| | |
+|---|---|
+| Tanggal | 2026-11-12 |
+| File | `skills/webclone/scripts/motion-probe.mjs` |
+| Masalah | Tween GSAP tercatat `"startAt":"[object]"` dan `"stagger":"[object]"`, jadi posisi "from" (mis. opacity 0, skewX 30deg) tidak diketahui |
+| Akar | Semua nilai objek di `vars` diratakan menjadi string "[object]" |
+| Fix | Objek dangkal disimpan dengan field primitifnya (kecuali `parent`/`data`) |
+| Verifikasi | taskgo-oly.webflow.io: 11 tween terbaca lengkap, mis. teams-block `{y:"40%",skewX:"9deg"}` → `{y:"0%",skewX:"0deg"}` stagger each 0.2; heading letters `{opacity:0,skewX:"30deg"}` stagger amount 0.5 |
+| Pelajaran | Probe motion harus menyimpan nilai from/to, bukan hanya to |
+| Log Keyword | motion-probe, startAt, stagger, gsap, taskgo |
+| Deploy | v2.0.2 |
+
+### Fix #6 — asset-harvest: fonts.css tetap menunjuk ke fonts.gstatic.com
+| | |
+|---|---|
+| Tanggal | 2026-11-12 |
+| File | `skills/webclone/scripts/asset-harvest.mjs` |
+| Masalah | `fonts.css` untuk Inter Tight berisi 3 URL `https://fonts.gstatic.com/...ttf` walau font sudah "terunduh" (font tidak self-hosted) |
+| Akar | CSS Google Fonts bergantung user-agent: salinan yang diambil script mendaftar `.ttf`, browser memuat `.woff2` dengan URL lain, sehingga peta URL→lokal tidak cocok |
+| Fix | Sebelum rewrite, setiap `url()` di CSS webfont yang belum ada di peta diunduh langsung ke `fonts/<host>/` lalu dipetakan |
+| Verifikasi | TaskGo: 3 URL remote → 0; `fonts.css` menunjuk ke `fonts.gstatic.com/<file>.ttf` lokal; audit strict tanpa defect font |
+| Pelajaran | CSS webfont harus diperlakukan sebagai bergantung UA; unduh referensinya sendiri |
+| Log Keyword | asset-harvest, fonts.css, google fonts, user-agent, taskgo |
+| Deploy | v2.0.2 |
+
 ### Fix #5 — Screenshot viewport selalu menangkap bagian atas halaman (lib CDP hasil port)
 | | |
 |---|---|

@@ -1,6 +1,6 @@
 {
   "name": "webclone",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "/webclone and friends: clone live websites into editable Next.js 16 + Tailwind v4 + shadcn/ui code with measured fonts, images, colors, and motion; whole-site cloning with a per-route fidelity gate; recon, audit, brand-kit extraction, and remix commands.",
   "author": {
     "name": "x2zu",

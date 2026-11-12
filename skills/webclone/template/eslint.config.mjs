@@ -12,6 +12,9 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Clone evidence and harvested assets: downloaded third-party HTML/JS/CSS, not project code.
+    "docs/**",
+    "public/**",
   ]),
 ]);
 

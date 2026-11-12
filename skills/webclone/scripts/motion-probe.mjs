@@ -127,7 +127,12 @@ function collectMotion() {
         const vars = {};
         for (const [key, value] of Object.entries(child.vars || {})) {
           if (typeof value === "function") vars[key] = "[function]";
-          else if (value && typeof value === "object" && !Array.isArray(value)) vars[key] = key === "scrollTrigger" ? "[scrollTrigger]" : "[object]";
+          else if (value && typeof value === "object" && !Array.isArray(value)) {
+            // Keep the shallow primitive fields: startAt holds the "from" values, stagger its timing.
+            const shallow = {};
+            for (const [k, v] of Object.entries(value)) if (["string", "number", "boolean"].includes(typeof v)) shallow[k] = v;
+            vars[key] = key === "parent" || key === "data" ? "[object]" : shallow;
+          }
           else vars[key] = value;
         }
         const targets = typeof child.targets === "function" ? child.targets().slice(0, 4).map(describe) : [];

@@ -20,9 +20,67 @@ WebCloner is a Claude Code plugin that turns a live website into editable Next.j
 - **Whole sites, not just pages.** Every route cloned and gated at 90-100% fidelity on desktop, tablet, and mobile.
 - **Make it yours.** Extract a brand kit, then remix a clone into your own brand.
 
-## Showcase: poliwangi.ac.id
+## Showcase
 
-A WebCloner clone of [poliwangi.ac.id](https://poliwangi.ac.id/), rebuilt as real Next.js components (hero slider, sections, header, footer, accessibility widget), next to the live site. Same viewport and scroll position; scores from `visual-diff.mjs`.
+Every score below is measured, not estimated: source and clone are captured at the same viewport and scroll position and compared with `visual-diff.mjs`.
+
+### TaskGo: full Webflow site, every route
+
+A `/webclone-full` clone of the [TaskGo Webflow template](https://taskgo-oly.webflow.io/): all 6 routes rebuilt as Next.js components, with the site's GSAP interactions (split-letter headings, scroll-scrubbed cards) and Webflow IX2 interactions (scroll reveals, logo marquee, FAQ accordion, pricing tabs, mobile menu) replayed from their exported data.
+
+| Route | 1440px | 768px | 390px | Page height |
+|---|---|---|---|---|
+| `/` | 97.91% | 98.98% | 98.42% | identical |
+| `/style-guide` | 99.68% | 99.43% | 99.02% | identical |
+| `/license` | 99.38% | 99.04% | 97.97% | identical |
+| `/changelog` | 99.57% | 99.35% | 98.74% | identical |
+| `/401` | 99.54% | 99.34% | 98.75% | identical |
+| `/404` | 99.61% | 99.47% | 98.89% | identical |
+
+<sub>Full-page pixel fidelity from `fidelity-gate.mjs` (gate: ≥ 90%, height drift ≤ 3%). 6/6 routes pass.</sub>
+
+<table>
+  <tr>
+    <th width="50%">Original</th>
+    <th width="50%">WebCloner clone</th>
+  </tr>
+  <tr>
+    <td><img src="docs/showcase/taskgo/original-hero.jpg" alt="Original TaskGo hero"></td>
+    <td><img src="docs/showcase/taskgo/clone-hero.jpg" alt="Cloned TaskGo hero"></td>
+  </tr>
+  <tr><td colspan="2" align="center"><sub>Hero · 1440px · <b>99.48%</b></sub></td></tr>
+  <tr>
+    <td><img src="docs/showcase/taskgo/original-features.jpg" alt="Original logo marquee and features"></td>
+    <td><img src="docs/showcase/taskgo/clone-features.jpg" alt="Cloned logo marquee and features"></td>
+  </tr>
+  <tr><td colspan="2" align="center"><sub>Logo marquee + features · <b>97.99%</b></sub></td></tr>
+  <tr>
+    <td><img src="docs/showcase/taskgo/original-steps.jpg" alt="Original stats and steps heading mid-animation"></td>
+    <td><img src="docs/showcase/taskgo/clone-steps.jpg" alt="Cloned stats and steps heading mid-animation"></td>
+  </tr>
+  <tr><td colspan="2" align="center"><sub>Stats + scroll-scrubbed split-letter heading, caught mid-animation on both · <b>98.93%</b></sub></td></tr>
+  <tr>
+    <td><img src="docs/showcase/taskgo/original-testimonials.jpg" alt="Original testimonials"></td>
+    <td><img src="docs/showcase/taskgo/clone-testimonials.jpg" alt="Cloned testimonials"></td>
+  </tr>
+  <tr><td colspan="2" align="center"><sub>Testimonials · <b>97.89%</b></sub></td></tr>
+  <tr>
+    <td><img src="docs/showcase/taskgo/original-pricing.jpg" alt="Original pricing after clicking Yearly"></td>
+    <td><img src="docs/showcase/taskgo/clone-pricing.jpg" alt="Cloned pricing after clicking Yearly"></td>
+  </tr>
+  <tr><td colspan="2" align="center"><sub>Interaction: pricing toggle after a real click on "Yearly"</sub></td></tr>
+  <tr>
+    <td align="center"><img src="docs/showcase/taskgo/original-mobile-menu.jpg" width="260" alt="Original mobile menu open"></td>
+    <td align="center"><img src="docs/showcase/taskgo/clone-mobile-menu.jpg" width="260" alt="Cloned mobile menu open"></td>
+  </tr>
+  <tr><td colspan="2" align="center"><sub>Interaction: mobile menu opened with a real tap · 390px · <b>99.30%</b></sub></td></tr>
+</table>
+
+<sub>Demo clone for illustration only. The TaskGo template, its design, and its images belong to Olynex and the respective asset owners.</sub>
+
+### poliwangi.ac.id
+
+A WebCloner clone of [poliwangi.ac.id](https://poliwangi.ac.id/), rebuilt as real Next.js components (hero slider, sections, header, footer, accessibility widget), next to the live site.
 
 <table>
   <tr>

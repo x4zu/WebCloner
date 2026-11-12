@@ -280,6 +280,28 @@ try {
   for (const cssAsset of webfontCssUrls) {
     try {
       const cssText = fs.readFileSync(path.join(path.resolve(args.outDir), cssAsset.localPath), "utf8");
+      // Webfont CSS is UA-dependent: the copy fetched here can list different files (e.g. .ttf)
+      // than the ones the browser loaded (.woff2). Download any referenced font that is still missing.
+      for (const m of cssText.matchAll(/url\(\s*['"]?([^'")]+)['"]?\s*\)/gi)) {
+        let abs;
+        try {
+          abs = new URL(m[1], cssAsset.url).href;
+        } catch {
+          continue;
+        }
+        if (urlToLocal.has(abs) || !/^https?:/.test(abs)) continue;
+        try {
+          const res = await fetch(abs, { headers: { "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36", referer: pageUrl } });
+          if (!res.ok) continue;
+          const rel = localPathFor("font", abs);
+          const dest = path.join(path.resolve(args.outDir), rel);
+          fs.mkdirSync(path.dirname(dest), { recursive: true });
+          fs.writeFileSync(dest, Buffer.from(await res.arrayBuffer()));
+          urlToLocal.set(abs, rel);
+        } catch {
+          // leave the remote URL; reported below as a font that is not self-hosted
+        }
+      }
       fontCssBlocks.push(`/* self-hosted from ${cssAsset.url} */\n${rewriteFontCss(cssText, cssAsset.url, urlToLocal)}`);
     } catch {}
   }
