@@ -11,7 +11,7 @@
 | Verifikasi | Clone TaskGo: `npm run check` exit 0, 0 warning |
 | Pelajaran | Folder bukti/aset hasil unduhan bukan kode project; template harus mengecualikannya dari tooling |
 | Log Keyword | eslint, globalIgnores, docs, template, taskgo |
-| Deploy | v2.0.2 |
+| Deploy | ✅ LIVE 2026-11-12 v2.0.2 (commit 6fda9d0, CI run 43160354934 hijau) |
 
 ### Fix #7 — motion-probe membuang nilai awal (startAt) animasi GSAP
 | | |
@@ -24,7 +24,7 @@
 | Verifikasi | taskgo-oly.webflow.io: 11 tween terbaca lengkap, mis. teams-block `{y:"40%",skewX:"9deg"}` → `{y:"0%",skewX:"0deg"}` stagger each 0.2; heading letters `{opacity:0,skewX:"30deg"}` stagger amount 0.5 |
 | Pelajaran | Probe motion harus menyimpan nilai from/to, bukan hanya to |
 | Log Keyword | motion-probe, startAt, stagger, gsap, taskgo |
-| Deploy | v2.0.2 |
+| Deploy | ✅ LIVE 2026-11-12 v2.0.2 (commit 6fda9d0, CI run 43160354934 hijau) |
 
 ### Fix #6 — asset-harvest: fonts.css tetap menunjuk ke fonts.gstatic.com
 | | |
@@ -37,7 +37,7 @@
 | Verifikasi | TaskGo: 3 URL remote → 0; `fonts.css` menunjuk ke `fonts.gstatic.com/<file>.ttf` lokal; audit strict tanpa defect font |
 | Pelajaran | CSS webfont harus diperlakukan sebagai bergantung UA; unduh referensinya sendiri |
 | Log Keyword | asset-harvest, fonts.css, google fonts, user-agent, taskgo |
-| Deploy | v2.0.2 |
+| Deploy | ✅ LIVE 2026-11-12 v2.0.2 (commit 6fda9d0, CI run 43160354934 hijau) |
 
 ### Fix #5 — Screenshot viewport selalu menangkap bagian atas halaman (lib CDP hasil port)
 | | |
