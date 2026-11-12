@@ -2,35 +2,49 @@ name: CI
 
 on:
   push:
-    branches:
-      - master
+    branches: [main]
   pull_request:
-    branches:
-      - master
+    branches: [main]
 
 jobs:
-  quality:
+  template:
+    name: Template check
     runs-on: ubuntu-latest
     timeout-minutes: 15
-
+    defaults:
+      run:
+        working-directory: skills/webclone/template
     steps:
-      - name: Checkout
-        uses: actions/checkout@v7
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v7
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 24
           cache: npm
+          cache-dependency-path: skills/webclone/template/package-lock.json
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm run build
 
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Lint
-        run: npm run lint
-
-      - name: Type check
-        run: npm run typecheck
-
-      - name: Build
-        run: npm run build
+  scaffold:
+    name: Scaffold smoke test
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Validate plugin manifests
+        run: |
+          node -e "for (const f of ['.claude-plugin/plugin.json','.claude-plugin/marketplace.json']) JSON.parse(require('fs').readFileSync(f,'utf8'))"
+      - name: Scaffold a project
+        run: |
+          mkdir -p /tmp/wc && cd /tmp/wc
+          node "$GITHUB_WORKSPACE/skills/webclone/scripts/scaffold.mjs" example.com --install > out.json
+          cat out.json
+          test -f example-com-clone/.webclone.json
+          test -d example-com-clone/src/components/sites/example-com
+      - name: Scaffolded project builds
+        working-directory: /tmp/wc/example-com-clone
+        run: npm run check

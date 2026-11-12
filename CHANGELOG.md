@@ -5,10 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [1.0.0] - 2026-11-12
 
-### Fixed
-- Count the README token badge in CI so it reflects the current default branch instead of a stale hosted count.
+### Changed
+- Repackaged as the **webclone** Claude Code plugin (marketplace `webcloner`). Install with `/plugin marketplace add x4zu/WebCloner`, then run `/webclone <url1> [<url2> ...]` in any folder; no template checkout needed.
+- The Next.js scaffold moved to `skills/webclone/template/`; the workflow skill moved to `skills/webclone/SKILL.md`.
+- Node requirement relaxed to 20.9+ (Next.js 16 minimum); 24 remains recommended.
+
+### Added
+- `scripts/scaffold.mjs`: creates `./<site>-clone/` per origin (or reuses a project marked by `.webclone.json`), personalizes `package.json`, creates per-site folders, and installs dependencies.
+- `scripts/capture.mjs`: Playwright fallback when no browser tool is available. Captures top and full-page screenshots per width after wheel scrolling, writes a `report.json` of page facts, and downloads assets with format sniffing.
+- CI smoke test that scaffolds a project and runs `npm run check` on it.
+
+### Removed
+- Upstream sponsor, funding, token-badge workflow, star-history assets, and the `.agents`/`.claude/commands` bridge.
 
 ## [0.6.1] - 2026-10-05
 

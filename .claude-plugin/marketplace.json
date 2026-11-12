@@ -1,0 +1,17 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "webcloner",
+  "description": "WebCloner: clone any website into a clean Next.js codebase with one command.",
+  "owner": {
+    "name": "x4zu",
+    "url": "https://github.com/x4zu"
+  },
+  "plugins": [
+    {
+      "name": "webclone",
+      "description": "/webclone <url1> [<url2> ...]: rebuild live websites as editable Next.js pages.",
+      "source": "./",
+      "category": "development"
+    }
+  ]
+}

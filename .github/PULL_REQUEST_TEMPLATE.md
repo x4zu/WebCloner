@@ -16,4 +16,6 @@
 
 ## Checklist
 
-- [ ] `npm run check` passes (lint + typecheck + build)
+- [ ] `npm run check` passes in `skills/webclone/template/`
+- [ ] `claude plugin validate .` passes
+- [ ] `CHANGELOG.md` updated

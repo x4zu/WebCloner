@@ -23,7 +23,7 @@ body:
       label: Steps to Reproduce
       description: Step-by-step instructions to reproduce the behavior.
       placeholder: |
-        1. Run `/clone-website https://example.com`
+        1. Run `/webclone https://example.com`
         2. Wait for agents to finish
         3. See error in terminal...
     validations:
