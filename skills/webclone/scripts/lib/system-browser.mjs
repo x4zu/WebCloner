@@ -331,12 +331,15 @@ class CdpPage {
   }
 
   async screenshot({ path: outputPath, fullPage = false } = {}) {
-    const params = { format: "png", fromSurface: true, captureBeyondViewport: true };
+    const params = { format: "png", fromSurface: true };
     if (fullPage) {
       const metrics = await this.connection.send("Page.getLayoutMetrics");
+      params.captureBeyondViewport = true;
       params.clip = fullPageScreenshotClip(metrics, this.viewport);
     } else {
-      params.clip = { x: 0, y: 0, width: this.viewport.width, height: this.viewport.height, scale: 1 };
+      // Viewport shot = what is visible at the current scroll position. A {x:0,y:0} clip with
+      // captureBeyondViewport would always capture the top of the document instead.
+      params.captureBeyondViewport = false;
     }
     const { data } = await this.connection.send("Page.captureScreenshot", params, 60_000);
     fs.mkdirSync(path.dirname(outputPath), { recursive: true });

@@ -20,6 +20,39 @@ WebCloner is a Claude Code plugin that turns a live website into editable Next.j
 - **Whole sites, not just pages.** Every route cloned and gated at 90-100% fidelity on desktop, tablet, and mobile.
 - **Make it yours.** Extract a brand kit, then remix a clone into your own brand.
 
+## Showcase: poliwangi.ac.id
+
+A WebCloner clone of [poliwangi.ac.id](https://poliwangi.ac.id/), rebuilt as real Next.js components (hero slider, sections, header, footer, accessibility widget), next to the live site. Same viewport and scroll position; scores from `visual-diff.mjs`.
+
+<table>
+  <tr>
+    <th width="50%">Original</th>
+    <th width="50%">WebCloner clone</th>
+  </tr>
+  <tr>
+    <td><img src="docs/showcase/poliwangi/original-hero.jpg" alt="Original poliwangi.ac.id hero at 1440px"></td>
+    <td><img src="docs/showcase/poliwangi/clone-hero.jpg" alt="Cloned hero at 1440px"></td>
+  </tr>
+  <tr><td colspan="2" align="center"><sub>Hero · 1440px · <b>100%</b> pixel fidelity</sub></td></tr>
+  <tr>
+    <td><img src="docs/showcase/poliwangi/original-news.jpg" alt="Original feature cards and news section"></td>
+    <td><img src="docs/showcase/poliwangi/clone-news.jpg" alt="Cloned feature cards and news section"></td>
+  </tr>
+  <tr><td colspan="2" align="center"><sub>Feature cards + news · 1440px · <b>99.34%</b></sub></td></tr>
+  <tr>
+    <td><img src="docs/showcase/poliwangi/original-agenda.jpg" alt="Original agenda and video section"></td>
+    <td><img src="docs/showcase/poliwangi/clone-agenda.jpg" alt="Cloned agenda and video section"></td>
+  </tr>
+  <tr><td colspan="2" align="center"><sub>Agenda + video · 1440px · <b>100%</b></sub></td></tr>
+  <tr>
+    <td align="center"><img src="docs/showcase/poliwangi/original-mobile.jpg" width="260" alt="Original mobile view at 390px"></td>
+    <td align="center"><img src="docs/showcase/poliwangi/clone-mobile.jpg" width="260" alt="Cloned mobile view at 390px"></td>
+  </tr>
+  <tr><td colspan="2" align="center"><sub>Mobile · 390px · <b>99.98%</b> · full page height identical at both widths (4851px / 9143px)</sub></td></tr>
+</table>
+
+<sub>Demo clone for illustration only. The Politeknik Negeri Banyuwangi name, logo, photos, and content belong to their owner.</sub>
+
 ## Install
 
 In Claude Code:
