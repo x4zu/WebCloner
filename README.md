@@ -2,15 +2,23 @@
 
 # WebCloner
 
-### `/webclone <url>`: clone any website into a clean Next.js codebase
+### Clone any website into a clean Next.js codebase, with one command
 
-A Claude Code plugin. Install it once, then run `/webclone` in any folder. It creates the Next.js 16 + Tailwind v4 + shadcn/ui project, measures the live site (real fonts, images, colors, motion timings), rebuilds it as editable code, and gates delivery on measured pixel fidelity.
+**by [Reivan Elsyafir Pratama](https://www.x2zu.net/)**
+
+`/webclone` · `/webclone-full` · `/webclone-recon` · `/webclone-audit` · `/webclone-brand` · `/webclone-remix`
 
 </div>
 
 ---
 
-![Source vs clone comparison](docs/assets/comparison.png)
+WebCloner is a Claude Code plugin that turns a live website into editable Next.js 16 + Tailwind v4 + shadcn/ui code. It does not guess: it measures the real fonts, images, colors, and motion timings of the source, rebuilds the page, and refuses to call the job done until the clone passes a measured pixel-fidelity gate.
+
+- **One command, any folder.** No template repo to clone; the project is created for you.
+- **Zero browser setup.** Uses the Chrome or Edge you already have.
+- **Measured, not eyeballed.** Exact colors, self-hosted real fonts, harvested images, real easing curves and scroll settings.
+- **Whole sites, not just pages.** Every route cloned and gated at 90-100% fidelity on desktop, tablet, and mobile.
+- **Make it yours.** Extract a brand kit, then remix a clone into your own brand.
 
 ## Install
 
@@ -113,10 +121,12 @@ npm ci && npm run check              # the scaffold must stay green
 
 For sites you own or may reproduce: migrations, recovering lost source, learning how production sites are built, and as a starting point you then make your own with `/webclone-remix`. Do **not** use it for phishing, impersonation, or passing off someone else's design or brand as yours, and respect each site's terms of service. Logos, brand assets, fonts, media, and copy belong to their owners. The tools never bypass CAPTCHAs or anti-bot walls.
 
-## Credits
+## Author
 
-Built on [ai-website-cloner-template](https://github.com/JCodesMore/ai-website-cloner-template) by JCodesMore (MIT), the `web-clone` skill by Jane (@xiaoerzhan, MIT) and craft/brand material from [nexu-io/open-design](https://github.com/nexu-io/open-design) (Apache-2.0), `frontend-design` and `theme-factory` from [anthropics/skills](https://github.com/anthropics/skills) (Apache-2.0), and motion guidance by Emil Kowalski, GreenSock, and Matthew Blode (MIT). Details in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+Designed, combined, and maintained by **[Reivan Elsyafir Pratama](https://www.x2zu.net/)**.
 
 ## License
 
 [MIT](LICENSE)
+
+<sub>Acknowledgements: WebCloner combines and extends open-source work by JCodesMore (ai-website-cloner-template), Jane / @xiaoerzhan and nexu-io (open-design), Anthropic (skills), Emil Kowalski, GreenSock, and Matthew Blode. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for details and licenses.</sub>
