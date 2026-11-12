@@ -11,7 +11,7 @@
 | Verifikasi | poliwangi.ac.id 1440px: sebelum, shot 30% dan 60% identik dengan hero. Sesudah, 20/40/60/80/100% menampilkan section berbeda (kartu, pengumuman, agenda, footer); visual-diff source vs clone per posisi 99.34–100% |
 | Pelajaran | Adapter "Playwright-compatible" harus diuji perilakunya (scroll + screenshot), bukan hanya bentuk API-nya |
 | Log Keyword | screenshot, captureBeyondViewport, clip, system-browser, CDP |
-| Deploy | v2.0.1 |
+| Deploy | ✅ LIVE 2026-11-12 v2.0.1 (commit 8c2c67c, CI run 43154750892 hijau) |
 
 ### Fix #4 — fidelity-gate: route "/x" jadi "C:/Program Files/Git/x" di Git Bash
 | | |
