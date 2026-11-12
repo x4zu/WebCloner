@@ -1,9 +1,9 @@
 {
   "name": "webclone",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "/webclone <url1> [<url2> ...] rebuilds live websites as editable Next.js 16 + Tailwind v4 + shadcn/ui pages that match the source's content, assets, responsive layout, and interactions.",
   "author": {
-    "name": "x4zu",
+    "name": "x2zu",
     "url": "https://github.com/x4zu"
   },
   "homepage": "https://github.com/x4zu/WebCloner",
